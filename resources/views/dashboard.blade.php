@@ -156,5 +156,5 @@
 </div>
 @endsection
 
-<!-- telah memperbaiki isue -->
+<!-- telah memperbaiki isues -->
 <!-- komentar issues -->
