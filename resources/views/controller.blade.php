@@ -28,7 +28,8 @@
 
     <!-- MODE BUTTON -->
     <div class="mb-6 w-full flex gap-3 max-w-md">
-        <button class="w-full px-4 py-3 bg-black text-white rounded-lg text-sm">
+        <button class="w-full px-4 py-3 bg-black text-white rounded-lg text-sm"> 
+            {{-- comment aja --}}
             Aktifkan Manual Mode
         </button>
 
