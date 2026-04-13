@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('label'); // jenis sampah
             $table->string('supabase_id')->nullable(); // ID dari Supabase (untuk sync)
             $table->timestamp('detected_at')->nullable(); // waktu deteksi asli
+            $table->boolean('is_history')->default(false); // true = sudah di-history, false = masih live
             $table->timestamps();
         });
     }
