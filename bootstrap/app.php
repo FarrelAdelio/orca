@@ -13,6 +13,16 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
         //
     })
+
+    // Alternatif cron job
+    // ->withSchedule(function (Schedule $schedule) {
+    //     // Sync dari Supabase setiap 5 menit
+    //     $schedule->call(function () {
+    //         $syncService = app(App\Services\SupabaseSyncService::class);
+    //         $syncService->sync();
+    //     })->everyFiveMinutes()->name('supabase-sync');
+    // })
+
     ->withExceptions(function (Exceptions $exceptions): void {
         //
     })->create();
