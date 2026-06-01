@@ -17,9 +17,12 @@
                 </div>
             </div>
 
-            <a href="{{ route('login') }}" class="px-4 py-2 bg-black text-white rounded-lg text-sm w-full md:w-auto">
-                Keluar
-            </a>
+            <form action="{{ route('logout') }}" method="POST" class="inline">
+                @csrf
+                <button type="submit" class="px-4 py-2 bg-black text-white rounded-lg text-sm w-full md:w-auto">
+                    Keluar
+                </button>
+            </form>
         </section>
 
         <!-- STATUS (Dinamis dari Supabase) -->
@@ -28,6 +31,33 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
 
+
+                <!-- KAPASITAS -->
+                <div class="border rounded-xl p-4">
+                    <p class="text-sm text-gray-500 mb-2">Kapasitas Sampah</p>
+                    <div class="flex justify-between text-sm mb-1">
+                        <span>Terisi</span>
+                        <span class="font-semibold">75%</span>
+                    </div>
+
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-black h-2 rounded-full" style="width: 75%"></div>
+                    </div>
+                </div>
+
+                <!-- BATTERY -->
+                {{-- <div class="border rounded-xl p-4">
+                    <p class="text-sm text-gray-500 mb-2">Battery</p>
+                    <div class="flex justify-between text-sm mb-1">
+                        <span>Status</span>
+                        <span class="font-semibold">91%</span>
+                    </div>
+
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-black h-2 rounded-full" style="width: 91%"></div>
+                    </div>
+                </div> --}}
+                
                 <!-- TOTAL DETEKSI -->
                 <div class="border rounded-xl p-4">
                     <p class="text-sm text-gray-500 mb-2">Total Deteksi Sampah</p>
@@ -42,7 +72,10 @@
                     <p class="text-sm text-gray-500 mt-2">Update realtime</p>
                 </div>
 
-                <!-- RATA-RATA CONFIDENCE -->
+
+
+
+                {{-- <!-- RATA-RATA CONFIDENCE -->
                 <div class="border rounded-xl p-4">
                     <p class="text-sm text-gray-500 mb-2">Rata-rata Confidence</p>
                     <p class="text-3xl font-bold" id="stat-avg">0%</p>
@@ -56,7 +89,9 @@
                         🔄 Sync ke History
                     </button>
                     <p class="text-xs text-gray-400 mt-2" id="sync-status">Terakhir sync: -</p>
-                </div>
+                </div> --}}
+
+
 
             </div>
         </section>
@@ -114,7 +149,7 @@
         <!-- HISTORY (DARI MYSQL) -->
         <section>
             <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-3 mb-4">
-                <h2 class="text-xl md:text-2xl font-semibold">Log History (MySQL)</h2>
+                <h2 class="text-xl md:text-2xl font-semibold">Log History</h2>
 
                 <button onclick="exportHistoryToCSV()"
                     class="px-4 py-2 bg-black text-white rounded-lg text-sm w-full md:w-auto">
