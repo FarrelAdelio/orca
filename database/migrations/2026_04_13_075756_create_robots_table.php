@@ -18,7 +18,7 @@ return new class extends Migration
             $table->enum('status', ['online', 'offline', 'error'])->default('offline');
             $table->enum('mode', ['auto', 'manual', 'standby'])->default('auto');
             $table->integer('baterai')->default(100); // persen
-            $table->enum('status_wadah', ['kosong', 'terisi', 'penuh'])->default('kosong');
+            $table->integer('status_wadah')->default(0); 
             $table->timestamp('last_update')->nullable();
             $table->timestamps();
         });
@@ -29,7 +29,7 @@ return new class extends Migration
             'status' => 'online',
             'mode' => 'auto',
             'baterai' => 85,
-            'status_wadah' => 'terisi',
+            'status_wadah' => 0,
             'last_update' => now(),
             'created_at' => now(),
             'updated_at' => now(),

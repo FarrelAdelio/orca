@@ -16,20 +16,37 @@
         </div>
 
         <!-- CARD -->
-        <div class=" rounded-xl p-6 space-y-5">
+        <div class="rounded-xl p-6 space-y-5">
 
             <h2 class="text-xl font-semibold text-center">Login</h2>
 
+            <!-- ERROR MESSAGE -->
+            @if ($errors->any())
+                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                    <span class="block sm:inline">{{ $errors->first() }}</span>
+                </div>
+            @endif
+
+            @if (session('error'))
+                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                    <span class="block sm:inline">{{ session('error') }}</span>
+                </div>
+            @endif
+
             <!-- FORM -->
-            <form action="{{ route('dashboard') }}" method="GET" class="space-y-4">
+            <form action="{{ route('login') }}" method="POST" class="space-y-4">
+                @csrf
 
                 <!-- EMAIL -->
                 <div>
                     <label class="text-sm text-gray-600">Email</label>
                     <input 
                         type="email" 
-                        placeholder="orca@gmail.com"
+                        name="email"
+                        value="{{ old('email') }}"
+                        placeholder="operator@orca.com"
                         class="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-1 focus:ring-black"
+                        required
                     >
                 </div>
 
@@ -38,8 +55,10 @@
                     <label class="text-sm text-gray-600">Password</label>
                     <input 
                         type="password" 
+                        name="password"
                         placeholder="••••••••"
                         class="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-1 focus:ring-black"
+                        required
                     >
                 </div>
 
@@ -54,15 +73,7 @@
 
         </div>
 
-        <!-- FOOTER -->
-        <!-- <p class="text-center text-xs text-gray-400 mt-6">
-            © 2026 Orca
-        </p> -->
-
     </div>
 
 </div>
 @endsection
-
-
-{{-- tes komen fix issue --}}
